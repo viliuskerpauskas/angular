@@ -6,10 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TemperaturePipe implements PipeTransform {
   transform(
-    value: string | number,
+    value: string | number | null,
     inputType: 'c' | 'f',
     outputType?: 'c' | 'f'
   ) {
+    if (!value) {
+      return value;
+    }
+
     let val: number;
 
     if (typeof value === 'string') {
@@ -34,6 +38,6 @@ export class TemperaturePipe implements PipeTransform {
       symbol = outputType === 'c' ? '°C' : '°F';
     }
 
-    return `${outputTemp} ${symbol}`;
+    return `${outputTemp.toFixed(2)} ${symbol}`;
   }
 }
