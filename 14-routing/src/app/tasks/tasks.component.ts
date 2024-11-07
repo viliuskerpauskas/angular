@@ -13,6 +13,7 @@ import { TasksService } from './tasks.service';
 })
 export class TasksComponent {
   userId = input.required<string>();
+  order = input<'asc' | 'desc'>();
   // userTasks: Task[] = [];
   private tasksService = inject(TasksService);
   userTasks = computed(() =>
