@@ -28,7 +28,7 @@ export class UserTasksComponent implements OnInit {
   // );
 
   ngOnInit(): void {
-    console.log(this.activatedRoute);
+    console.log(this.activatedRoute.snapshot);
     const subscription = this.activatedRoute.paramMap.subscribe({
       next: (paramMap) => {
         this.userName =
